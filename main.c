@@ -44,6 +44,15 @@ double densite(num_sommets) {
   return (2.0 * num_arcs) / (num_sommets * (num_sommets - 1));
 }
 
+// Rechercher un nœud dans le graph
+void rech_sommet(int sommet) {
+  printf("Sommet %d:\n", sommet);
+  for (int i = 0; i < num_sommets; i++) {
+    if (matrice_adj[sommet][i]) {
+      printf("  vers sommet %d\n", i);
+    }
+  }
+}
 
 
       
