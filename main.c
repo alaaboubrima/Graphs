@@ -31,6 +31,18 @@ void rep_graph(int num_sommets) {
   }
 }
 
+// Densité
+double densite(num_sommets) {
+  int num_arcs = 0;
+  for (int i = 0; i < num_sommets; i++) {
+    for (int j = 0; j < num_sommets; j++) {
+      if (matrice_adj[i][j]) {
+        num_arcs++;
+      }
+    }
+  }
+  return (2.0 * num_arcs) / (num_sommets * (num_sommets - 1));
+}
 
 
 
