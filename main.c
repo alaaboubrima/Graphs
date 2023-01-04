@@ -54,7 +54,27 @@ void rech_sommet(int sommet) {
   }
 }
 
+// Rechercher un chemin entre deux nœuds dans le graph
+bool rech_chemin(int origine, int dest) {
+  if (origine == dest) {
+    return true;
+  }
 
+  // Marquer le nœud source comme visité
+  matrice_adj[origine][origine] = 2;
+
+  // Vérifier si il y a un chemin vers chaque nœud adjacent
+  for (int i = 0; i < num_sommets; i++) {
+    if (matrice_adj[origine][i] == 1 && matrice_adj[i][i] != 2) {
+      if (rech_chemin(i, dest)) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+      
       
 int main(void) {
   // Initialiser le graph avec 4 sommets
