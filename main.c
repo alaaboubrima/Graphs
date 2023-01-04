@@ -21,7 +21,20 @@ void add_arc(int origine, int dest) {
   matrice_adj[dest][origine] = 1;
 }
 
+// Représentation
+void rep_graph(int num_sommets) {
+  for (int i = 0; i < num_sommets; i++) {
+    for (int j = 0; j < num_sommets; j++) {
+      printf("%d ", matrice_adj[i][j]);
+    }
+    printf("\n");
+  }
+}
 
+
+
+
+      
 int main(void) {
   // Initialiser le graph avec 4 sommets
   num_sommets = 4;
@@ -35,7 +48,10 @@ int main(void) {
   add_arc(2, 3);
 
 
+  // Représentation du graph
+  rep_graph(num_sommets);
 
+  
   
   return 0;
 }
