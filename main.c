@@ -1,2 +1,41 @@
 #include <stdio.h>
 #include <stdbool.h>
+#define MAX_SOMMETS 100
+
+// Matrice d'adjacence pour représenter un graph
+int matrice_adj[MAX_SOMMETS][MAX_SOMMETS];
+int num_sommets;
+
+// Initialiser le graph
+void construct_graph(int num_sommets) {
+  for (int i = 0; i < num_sommets; i++) {
+    for (int j = 0; j < num_sommets; j++) {
+      matrice_adj[i][j] = 0;
+    }
+  }
+}
+
+// Ajouter une arête au graph
+void add_arc(int origine, int dest) {
+  matrice_adj[origine][dest] = 1;
+  matrice_adj[dest][origine] = 1;
+}
+
+
+int main(void) {
+  // Initialiser le graph avec 4 sommets
+  num_sommets = 4;
+  construct_graph(num_sommets);
+
+  // Ajouter quelques arêtes
+  add_arc(0, 1);
+  add_arc(0, 2);
+  add_arc(2, 1);
+  add_arc(1, 2);
+  add_arc(2, 3);
+
+
+
+  
+  return 0;
+}
