@@ -72,6 +72,20 @@ int main(void) {
   // Représentation du graph
   rep_graph(num_sommets);
 
+  // Densite
+  printf("%f\n", densite(num_sommets));
+  
+  // Rechercher un nœud dans le graph
+  rech_sommet(3);
+  
+  
+  
+  // Rechercher un chemin entre les nœuds 0 et 3
+  if (rech_chemin(0, 3)) {
+    printf("Chemin trouvé\n");
+  } else {
+    printf("Chemin non trouvé\n");
+  }
   
   
   return 0;
