@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #define MAX_SOMMETS 200
 #include <time.h>
+#include <limits.h>
 
 // Matrice d'adjacence pour représenter un graph
 int matrice_adj[MAX_SOMMETS][MAX_SOMMETS];
@@ -114,7 +115,56 @@ void supp_sommet_avec_liens(int node) {
 }
 
 
+// Fonction BFS qui trouve le plus court chemin entre start et end
+void bfs(int start, int end) {
+    bool visited[num_sommets];
+    int distance[num_sommets];
+    int parent[num_sommets];
+    int queue[num_sommets];
+    int front = 0, rear = -1;
 
+    // Initialise tous les tableaux
+    for (int i = 0; i < num_sommets; i++) {
+        visited[i] = false;
+        parent[i] = -1;
+        distance[i] = INT_MAX;
+    }
+
+    // Distance de la source est fixée à 0
+    distance[start] = 0;
+    visited[start] = true;
+    queue[++rear] = start;
+
+    // Effectue BFS
+    while (front <= rear) {
+        int current = queue[front++];
+        for (int i = 0; i < num_sommets; i++) {
+            if (matrice_adj[current][i] == 1 && !visited[i]) {
+                visited[i] = true;
+                parent[i] = current;
+                distance[i] = distance[current] + 1;
+                queue[++rear] = i;
+            }
+        }
+    }
+
+    // Affiche le plus court chemin
+    if (parent[end] == -1) {
+        printf("Aucun chemin de %d à %d\n", start, end);
+    } else {
+        int current = end;
+        int path[num_sommets];
+        int path_index = 0;
+        while (current != -1) {
+            path[path_index++] = current;
+            current = parent[current];
+        }
+        printf("Le plus court chemin entre %d et %d a une longueur de %d: ", start, end, distance[end]);
+        for (int i = path_index - 1; i >= 0; i--) {
+            printf("%d ", path[i]);
+        }
+    }
+}
 
 
 
@@ -260,7 +310,13 @@ int main(void) {
               break;
               
             case 6:
-              printf("");
+              printf("Entre le noeud a\n");
+              scanf("%d", &a);
+              printf("Entre le noeud b\n");
+              scanf("%d", &b);
+              start = clock();
+              bfs(a,b);
+              stop(start);
               break;
               
             case 7:
@@ -325,6 +381,7 @@ int main(void) {
 
   return 0;
 }
+
 
 
 
