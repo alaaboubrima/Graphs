@@ -21,11 +21,11 @@ This project focuses on the representation of graphs using two primary methods: 
    - Represents a graph using a list where each vertex has a list of adjacent vertices.
 
 3. **Operations and Complexity**
-More details on the [Project Documentation PDF](docs/Rapport.pdf)
+More details on the [Project Documentation PDF](./Rapport.pdf)
 4. **Experimental Evaluation**
-More details on the [Project Documentation PDF](docs/Rapport.pdf)
+More details on the [Project Documentation PDF](./Rapport.pdf)
 5. **Conclusion**
-More details on the [Project Documentation PDF](docs/Rapport.pdf)
+More details on the [Project Documentation PDF](./Rapport.pdf)
 
 ## Note
 
